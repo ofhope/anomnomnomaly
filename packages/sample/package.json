@@ -1,0 +1,24 @@
+{
+  "name": "@anomnomnomaly/sample",
+  "version": "0.0.1",
+  "description": "Spatial distributions: Poisson disk, Delaunay, Voronoi, Halton/Sobol",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -p tsconfig.build.json --watch"
+  },
+  "dependencies": {
+    "@anomnomnomaly/prng": "*"
+  },
+  "files": ["dist"]
+}

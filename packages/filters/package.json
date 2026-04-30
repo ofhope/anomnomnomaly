@@ -1,0 +1,24 @@
+{
+  "name": "@anomnomnomaly/filters",
+  "version": "0.0.1",
+  "description": "Value and color post-processing: remap, threshold, colorRamp, palette dithering",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -p tsconfig.build.json --watch"
+  },
+  "dependencies": {
+    "@anomnomnomaly/prng": "*"
+  },
+  "files": ["dist"]
+}
