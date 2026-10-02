@@ -1,0 +1,28 @@
+{
+  "name": "@anomnomnomaly/picocad",
+  "version": "0.0.1",
+  "description": "Read picoCAD models: geometry, PICO-8 textures, and GLB export for any engine",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "picocad": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "keywords": ["picocad", "pico-8", "pico8", "low-poly", "pixel-art", "gltf", "glb", "3d", "three", "pixi"],
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  },
+  "files": ["dist"]
+}

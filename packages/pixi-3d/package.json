@@ -1,0 +1,33 @@
+{
+  "name": "@anomnomnomaly/pixi-3d",
+  "version": "0.0.1",
+  "description": "pixi-3d helpers: picoCAD models loaded straight into the scene",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -p tsconfig.json --watch"
+  },
+  "keywords": ["pixi", "pixijs", "pixi-3d", "3d", "picocad", "pico-8", "low-poly", "pixel-art"],
+  "dependencies": {
+    "@anomnomnomaly/picocad": "*"
+  },
+  "peerDependencies": {
+    "@pixi/3d": ">=0.1.0-beta.1",
+    "pixi.js": "^8.0.0"
+  },
+  "devDependencies": {
+    "@pixi/3d": "file:../../../pixi-3d-beta",
+    "pixi.js": "file:../../../pixi-3d-beta/node_modules/pixi.js"
+  },
+  "files": ["dist"]
+}

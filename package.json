@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build -w packages/prng && npm run build -w packages/noise -w packages/sample -w packages/filters",
+    "build": "npm run build -w packages/prng && npm run build -w packages/noise -w packages/sample -w packages/filters -w packages/picocad && npm run build -w packages/pixi-3d",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "vitest run",
     "test:watch": "vitest",
