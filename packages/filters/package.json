@@ -25,9 +25,12 @@
     "dev": "tsc -p tsconfig.build.json --watch"
   },
   "dependencies": {
-    "@anomnomnomaly/prng": "*"
+    "@anomnomnomaly/prng": "^0.0.1"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

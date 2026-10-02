@@ -3,7 +3,7 @@ import { xoshiro256 } from '@anomnomnomaly/prng';
 import {
   unpackRGB, packRGB, lerpColor, toCSSHex, fromCSSHex, colorRamp, starPalette,
   remap, clamp, normalize, threshold, smoothstep, bias, gain, dither,
-} from '../index.js';
+} from './index.js';
 
 function rng(seed = 42) { return xoshiro256({ seed }); }
 

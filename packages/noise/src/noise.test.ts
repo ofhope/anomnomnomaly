@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { xoshiro256, mulberry32 } from '@anomnomnomaly/prng';
-import { simplex2D, worley2D, worley2DAsNoise, fbm } from '../index.js';
+import { simplex2D, worley2D, worley2DAsNoise, fbm } from './index.js';
 
 // ── helpers ────────────────────────────────────────────────────────────────────
 
@@ -30,7 +30,11 @@ describe('simplex2D', () => {
   it('differs for different seeds', () => {
     const a = simplex2D(rng(1));
     const b = simplex2D(rng(2));
-    expect(a(0.5, 0.5)).not.toBe(b(0.5, 0.5));
+    // Compared across many points: at any single point (especially on the simplex diagonal,
+    // where several gradients give the same value) two seeds can agree by chance
+    const points = Array.from({ length: 20 }, (_, i) => [i * 0.37 + 0.1, i * 0.91 + 0.3] as const);
+    const differing = points.filter(([x, y]) => a(x, y) !== b(x, y));
+    expect(differing.length).toBeGreaterThan(15);
   });
 
   it('is continuous — nearby inputs give nearby outputs', () => {
@@ -96,15 +100,20 @@ describe('fbm', () => {
   });
 
   it('more octaves add detail', () => {
-    // With more octaves, variance should increase (harder to test exactly,
-    // so just verify it runs and the range is sensible)
+    // Detail is fine-grained change: how much the value moves between close samples, relative to
+    // how much it varies overall. (Not raw variance: fbm normalizes by the total amplitude, so
+    // stacking octaves averages them and the overall variance drops.)
+    const roughness = (noise: (x: number, y: number) => number) => {
+      const vals = Array.from({ length: 2000 }, (_, i) => noise(i * 0.005, i * 0.003));
+      const mean = vals.reduce((a, v) => a + v, 0) / vals.length;
+      const rms = Math.sqrt(vals.reduce((a, v) => a + (v - mean) ** 2, 0) / vals.length);
+      const steps = vals.slice(1).reduce((a, v, i) => a + Math.abs(v - vals[i]), 0) / (vals.length - 1);
+
+      return steps / rms;
+    };
     const lo = fbm(simplex2D(rng()), { octaves: 1 });
     const hi = fbm(simplex2D(rng()), { octaves: 8 });
-    const samples = Array.from({ length: 100 }, (_, i) => i * 0.1);
-    const loVals = samples.map(s => lo(s, s));
-    const hiVals = samples.map(s => hi(s, s));
-    const loVar = loVals.reduce((a, v) => a + v * v, 0);
-    const hiVar = hiVals.reduce((a, v) => a + v * v, 0);
-    expect(hiVar).toBeGreaterThan(loVar * 0.5); // very loose bound
+
+    expect(roughness(hi)).toBeGreaterThan(roughness(lo) * 2);
   });
 });

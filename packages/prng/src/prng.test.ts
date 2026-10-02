@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { xoshiro256, mulberry32, squirrel3, squirrel3_2d, squirrel3Seeded } from '../index.js';
+import { xoshiro256, mulberry32, squirrel3, squirrel3_2d, squirrel3Seeded } from './index.js';
 
 // ── helpers ────────────────────────────────────────────────────────────────────
 

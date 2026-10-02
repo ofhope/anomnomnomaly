@@ -1,6 +1,7 @@
 {
   "name": "@anomnomnomaly/pixi-3d",
   "version": "0.0.1",
+  "private": true,
   "description": "pixi-3d helpers: picoCAD models loaded straight into the scene",
   "license": "MIT",
   "author": "Alexis Hope (https://alexishope.dev/)",
@@ -35,7 +36,7 @@
     "pixel-art"
   ],
   "dependencies": {
-    "@anomnomnomaly/picocad": "*"
+    "@anomnomnomaly/picocad": "^0.0.1"
   },
   "peerDependencies": {
     "@pixi/3d": ">=0.1.0-beta.1",
