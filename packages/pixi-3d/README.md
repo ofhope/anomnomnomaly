@@ -42,3 +42,7 @@ import { createPicoCADModel, picoCADSource } from '@anomnomnomaly/pixi-3d';
 
 const source = picoCADSource({ normalize: true }, parsePicoCAD(text));
 ```
+
+## Licence
+
+MIT

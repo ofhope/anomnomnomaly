@@ -2,6 +2,13 @@
   "name": "@anomnomnomaly/prng",
   "version": "0.0.1",
   "description": "Seeded PRNG engines: xoshiro256**, mulberry32, squirrel3",
+  "license": "MIT",
+  "author": "Alexis Hope (https://alexishope.dev/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofhope/-anomnomnomaly.git",
+    "directory": "packages/prng"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,5 +24,7 @@
     "clean": "rm -rf dist *.tsbuildinfo",
     "dev": "tsc -p tsconfig.build.json --watch"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }

@@ -2,6 +2,8 @@
   "name": "@anomnomnomaly/root",
   "private": true,
   "version": "0.0.0",
+  "license": "MIT",
+  "author": "Alexis Hope (https://alexishope.dev/)",
   "type": "module",
   "workspaces": [
     "packages/*"

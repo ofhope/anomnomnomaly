@@ -2,6 +2,13 @@
   "name": "@anomnomnomaly/pixi-3d",
   "version": "0.0.1",
   "description": "pixi-3d helpers: picoCAD models loaded straight into the scene",
+  "license": "MIT",
+  "author": "Alexis Hope (https://alexishope.dev/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofhope/-anomnomnomaly.git",
+    "directory": "packages/pixi-3d"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,7 +24,16 @@
     "clean": "rm -rf dist *.tsbuildinfo",
     "dev": "tsc -p tsconfig.json --watch"
   },
-  "keywords": ["pixi", "pixijs", "pixi-3d", "3d", "picocad", "pico-8", "low-poly", "pixel-art"],
+  "keywords": [
+    "pixi",
+    "pixijs",
+    "pixi-3d",
+    "3d",
+    "picocad",
+    "pico-8",
+    "low-poly",
+    "pixel-art"
+  ],
   "dependencies": {
     "@anomnomnomaly/picocad": "*"
   },
@@ -29,5 +45,7 @@
     "@pixi/3d": "file:../../../pixi-3d-beta",
     "pixi.js": "file:../../../pixi-3d-beta/node_modules/pixi.js"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }

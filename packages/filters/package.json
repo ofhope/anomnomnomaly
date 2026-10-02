@@ -2,6 +2,13 @@
   "name": "@anomnomnomaly/filters",
   "version": "0.0.1",
   "description": "Value and color post-processing: remap, threshold, colorRamp, palette dithering",
+  "license": "MIT",
+  "author": "Alexis Hope (https://alexishope.dev/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofhope/-anomnomnomaly.git",
+    "directory": "packages/filters"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,5 +27,7 @@
   "dependencies": {
     "@anomnomnomaly/prng": "*"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }

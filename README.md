@@ -70,3 +70,7 @@ npm run typecheck  # tsc --noEmit across all packages
 npm test           # vitest run across all packages
 npm run clean      # removes all dist/ output
 ```
+
+## Licence
+
+MIT, © 2026 Alexis Hope. See [LICENSE](./LICENSE).

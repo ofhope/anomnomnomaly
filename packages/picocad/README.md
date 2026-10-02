@@ -70,3 +70,7 @@ const glb = picoCADToGLB({ exclude: [1], normalize: true, deflate: deflateSync }
 ## In pixi-3d
 
 [`@anomnomnomaly/pixi-3d`](../pixi-3d) loads picoCAD saves straight into a scene, no conversion step.
+
+## Licence
+
+MIT

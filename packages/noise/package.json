@@ -2,6 +2,13 @@
   "name": "@anomnomnomaly/noise",
   "version": "0.0.1",
   "description": "Coherent noise: simplex2D, worley2D, fBm combinator",
+  "license": "MIT",
+  "author": "Alexis Hope (https://alexishope.dev/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofhope/-anomnomnomaly.git",
+    "directory": "packages/noise"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,5 +27,7 @@
   "dependencies": {
     "@anomnomnomaly/prng": "*"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }
