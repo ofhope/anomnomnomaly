@@ -19,10 +19,10 @@
     }
   },
   "bin": {
-    "picocad": "./dist/cli.js"
+    "picocad": "dist/cli.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist *.tsbuildinfo",
     "dev": "tsc -p tsconfig.json --watch"
