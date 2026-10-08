@@ -44,6 +44,37 @@ squirrel3_2d(x, y, seed);     // 2D convenience — mixes y in via a large prime
 squirrel3Seeded(seed)(pos);   // bound HashFn — useful as a callback
 ```
 
+## Seeds
+
+Players share seeds as words, not integers. `seedFromString` hashes any string (cyrb53) to an integer seed every generator accepts. `deriveSeed` gives each system, level or chunk its own seed, so changing how one system draws numbers never shifts another.
+
+```ts
+import { xoshiro256, seedFromString, deriveSeed } from '@anomnomnomaly/prng';
+
+const seed = seedFromString('ember-falls');
+const terrain = xoshiro256({ seed: deriveSeed(seed, 'terrain') });
+const loot    = xoshiro256({ seed: deriveSeed(seed, 'loot') });
+const level3  = xoshiro256({ seed: deriveSeed(seed, 3) });
+```
+
+## Distribution helpers
+
+Each takes the `RandomFn` last.
+
+```ts
+import { randomInt, randomFloat, chance, pick, shuffle, weightedPick } from '@anomnomnomaly/prng';
+
+randomInt(4, 9, rng);              // integer, 4..9 inclusive
+randomFloat(-1, 1, rng);           // float in [-1, 1)
+chance(0.25, rng);                 // true 25% of the time
+pick(['rat', 'bat'], rng);         // one element
+shuffle(rooms, rng);               // Fisher–Yates; returns a new array
+weightedPick([
+  { value: 'gold',  weight: 70 },
+  { value: 'sword', weight: 5 },
+], rng);
+```
+
 ## Types
 
 These types are defined here and re-exported by all other `@anomnomnomaly` packages.

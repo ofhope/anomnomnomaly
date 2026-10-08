@@ -6,9 +6,10 @@ A TypeScript monorepo for **procedural generation primitives** — initially pow
 
 | Package | Description |
 |---|---|
-| [`@anomnomnomaly/prng`](./packages/prng) | Seeded PRNG engines: xoshiro256\*\*, mulberry32, squirrel3 |
+| [`@anomnomnomaly/prng`](./packages/prng) | Seeded PRNG engines (xoshiro256\*\*, mulberry32, squirrel3), string seeds, distribution helpers |
 | [`@anomnomnomaly/noise`](./packages/noise) | Coherent noise: simplex2D, worley2D, fBm combinator |
-| [`@anomnomnomaly/sample`](./packages/sample) | Spatial distributions: Poisson disk, Delaunay, Voronoi, Halton |
+| [`@anomnomnomaly/sample`](./packages/sample) | Spatial distributions: Poisson disk, Delaunay, Voronoi, Halton, minimum spanning tree |
+| [`@anomnomnomaly/grid`](./packages/grid) | Tile-grid generation: room placement, BSP, cellular automata, regions, corridors |
 | [`@anomnomnomaly/filters`](./packages/filters) | Post-processing: color interpolation, remap, smoothstep, dithering |
 | [`@anomnomnomaly/picocad`](./packages/picocad) | picoCAD models: geometry, PICO-8 textures, GLB export, and a `picocad` command line |
 | [`@anomnomnomaly/pixi-3d`](./packages/pixi-3d) | pixi-3d helpers: picoCAD models loaded straight into a scene |
@@ -49,9 +50,10 @@ const v = terrain(x, y); // both call sites identical
 @anomnomnomaly/noise
 @anomnomnomaly/sample
 @anomnomnomaly/filters
+@anomnomnomaly/grid
 ```
 
-`noise`, `sample`, and `filters` depend on `prng` for the `RandomFn` interface type. They don't depend on each other, keeping the graph flat and letting consumers install only what they need.
+`noise`, `sample`, `filters` and `grid` depend on `prng` for the `RandomFn` interface type. They don't depend on each other, keeping the graph flat and letting consumers install only what they need.
 
 ```
 @anomnomnomaly/picocad
@@ -65,7 +67,7 @@ const v = terrain(x, y); // both call sites identical
 
 ```sh
 npm install
-npm run build      # builds prng first, then noise/sample/filters/picocad, then pixi-3d
+npm run build      # builds prng first, then noise/sample/filters/grid/picocad, then pixi-3d
 npm run typecheck  # tsc --noEmit across all packages
 npm test           # vitest run across all packages
 npm run clean      # removes all dist/ output

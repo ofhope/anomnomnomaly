@@ -1,13 +1,13 @@
 {
-  "name": "@anomnomnomaly/prng",
+  "name": "@anomnomnomaly/grid",
   "version": "0.1.0",
-  "description": "Seeded PRNG engines (xoshiro256**, mulberry32, squirrel3), string seeds, distribution helpers",
+  "description": "Tile-grid generation: room placement, BSP partitioning, cellular automata, regions, corridors",
   "license": "MIT",
   "author": "Alexis Hope (https://alexishope.dev/)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ofhope/-anomnomnomaly.git",
-    "directory": "packages/prng"
+    "directory": "packages/grid"
   },
   "type": "module",
   "main": "./dist/index.js",
@@ -23,6 +23,9 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist *.tsbuildinfo",
     "dev": "tsc -p tsconfig.build.json --watch"
+  },
+  "dependencies": {
+    "@anomnomnomaly/prng": "^0.1.0"
   },
   "files": [
     "dist"

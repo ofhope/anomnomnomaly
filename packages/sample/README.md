@@ -43,6 +43,18 @@ const edges = delaunayEdges(pts, tris, /* maxLength */ 200);
 // [[0, 1], [1, 2], ...] — useful for cosmic web filaments, road networks
 ```
 
+### `minimumSpanningTree` — connect everything, no loops
+
+Kruskal's algorithm with a union–find. Given points and candidate edges, keeps the subset with the smallest total length that still connects every point. With Delaunay edges as candidates this is the standard dungeon corridor graph; add a few of the discarded edges back for loops.
+
+```ts
+import { delaunayTriangulate, delaunayEdges, minimumSpanningTree } from '@anomnomnomaly/sample';
+
+const edges = delaunayEdges(roomCentres, delaunayTriangulate(roomCentres));
+const tree  = minimumSpanningTree(roomCentres, edges);
+// tree.length === roomCentres.length - 1
+```
+
 ### `voronoiCells` — Voronoi tessellation
 
 Derived as the dual of the Delaunay triangulation — no additional expensive computation. Returns the circumcentre vertices of surrounding triangles for each site, sorted angularly to form a convex polygon.

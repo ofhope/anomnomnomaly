@@ -1,6 +1,6 @@
 {
   "name": "@anomnomnomaly/sample",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Spatial distributions: Poisson disk, Delaunay, Voronoi, Halton/Sobol",
   "license": "MIT",
   "author": "Alexis Hope (https://alexishope.dev/)",
@@ -25,7 +25,7 @@
     "dev": "tsc -p tsconfig.build.json --watch"
   },
   "dependencies": {
-    "@anomnomnomaly/prng": "^0.0.1"
+    "@anomnomnomaly/prng": "^0.1.0"
   },
   "files": [
     "dist"

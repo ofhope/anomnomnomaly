@@ -4,6 +4,8 @@ export type { PoissonDiskOptions, Point2D } from './poisson.js';
 export { delaunayTriangulate, delaunayEdges } from './delaunay.js';
 export type { Triangle } from './delaunay.js';
 
+export { minimumSpanningTree } from './mst.js';
+
 export { voronoiCells } from './voronoi.js';
 export type { VoronoiCell } from './voronoi.js';
 
